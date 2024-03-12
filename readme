@@ -1,0 +1,125 @@
+1. Is Odd Or Even?
+
+    The time complexity if this function is constant, written as 0(1)
+    No matter of input size `n`, the function performs a single
+    arithemtic operation. 
+    (`n % 2 === 0`) and returns the result.
+    The time required to execute the function remains constant.
+
+Reasoning: 
+    The function performs a single modulo operation, which has a constant time complexity
+    The conditional (ternary) operator also has a constant time complexity, as it is a simple decision based on the result of the modulo operation
+
+Efficiency:
+    The function is highly efficent, especially for small inputs, as it executes in constant time. There are no loops or recursive calls.
+    However, for larger-scale applications where this function is called frequently, the constant time complexity contributes to overall efficiency
+
+Trade-offs:
+    While the time-complexity is optimal, there is a trade-off with space-complexity. This function has minimal space requirements, as it doesn't use any additional data structures
+
+2. Are You Here?
+
+    The time complexity if this function is 0(n^2),
+where `n` is the length of the larger of the two
+input arrays(`arr1` or `arr2`) This is because the function uses nested loops, and for each element in `arr1`, it compares it with every element in `arr2`
+
+Reasoning:
+    -The outer loop runs `arr.length` times
+    -For each iteration of the outer loop, the inner loop runs `arr2.length` times
+    -The comparison operation inside the inner loop (`arr1[i] === arr2[j]`) is a constant-time
+    operation
+
+Efficiency:
+    The function is less efficent for large input sizes due to its quadratic time complexity. As the size of the arrays increases, the number of comparisons grows significantly. This will lead to longer execution times and can become a bottleneck for large datasets.
+
+Trade-Offs:
+    Between time complexity and efficiency. While the function is conceptually simple and easy to understand, it is not the most efficent solution for large datasets. If optimizing for time complexity is crucial, alternative algorithms or data structures(such as using hash) might be considered to improve efficiency, even though they may introduce additional space complexity. 
+
+3. Doubler
+
+    The time complexity if this function is 0(n),
+    where `n` is the length of the input array `arr`. This is because the function uses a single loop that iterates through each element of the array once
+
+Reasoning: 
+    The loop runs `arr.length` times, iterating through each element of the array
+    The operation inside the loop (`arr[i] *= 2`) is a constant-time operation since it involves multiplying each element by 2
+
+Efficiency:
+    The function is efficent, especially for large input arrays, due to its linear time complexity. It scales well with the size of the input, and the operation inside the loop is a simple arithemtic operation that doesn't depend on the array values
+
+Trade-offs:
+    The trade-off here is in favor of time complexity efficiency. The function is concise, easy to understand, and performs efficiently for its intended purpose. Since it doesn't use nested loops or complex operations, it is well-suited for doubling the elements of an array without introducing unnecessary complexity. Additionally, the space complexity is minimal as the function operates directly on the input array, without requiring additional data structures. 
+
+4. Naive Search
+
+    The time complexity if this function is 0((n-m+1)*m), where `n` is the length of the input string `str` and `m` is the length of the pattern. This is because, in the worst case, the inner loop iterates through the entire pattern for each position in the string.
+
+Reasoning: 
+    The outer loop runs `str.length` times, representing the starting position for comparing the pattern with the substring of `str`
+    The inner loop runs `pattern.length` times for each position, comparing each character of the pattern with the corresponding character in the substring of `str`
+    The worst-case scenario occurs when the pattern matches the substring starting at every position, resulting in `0((n-m+1)*m)`
+
+Efficiency:
+    The function is less efficent for large strings and patterns due to its quadratic time complexity. It compares the pattern with substrings of the same length throughout the entire string. As the size of the string or pattern increases, the number of comparisons grows significantly. 
+
+Trade-Offs:
+    The trade-off here is between simplicity and time complexity efficiency. The function is conceptually simple, implementing a basic naive string search algorithm.
+
+5. Computing Fibonacci Numbers
+    Time complexity of this function is exponential, specifically 0(2^n). This is because the function recursively calls itself twice for each input value of `n`, leading to an exponential growth in the number of function calls.
+
+Reasoning:
+    The base case `if (n <= 1) return n;`
+    ensures that the recursion stops when `n` is 0 or 1, providing a base value for the fibonacci sequence.
+    For values of `n` greater than 1, the function makes two recursive calls, one for `fibonacci(n - 1)` and another for `fibonacci(n - 2)`
+    This branching of recursive calls creates a binary tree structure, resulting in an exponential number of function calls
+
+Efficiency:
+    This function is inefficient for large values of `n` due ti its exponential time complexity. As `n` increases, the number of recursive calls grows rapidly, leading to long computation times. For example, computing `fibonacci(23)` mat take a noticeable amount of time, and for larger values of `n`, it becomes impractical.
+
+Trade-offs:
+    The trade-off here would be between simplicity and efficiency. While the recursive Fibonacci function is conceptually simple to understand. For improved efficiency, dynamic programming techniques(such as memoization or tabulation) can be employed to store and reuse previously computed results, reducing the number of redundant recursive calls and significantly improving the time complexity to 0(n)
+
+7. Efficient Search
+    Time complexity of this function is 0(log n), where n is the number of elements in the array. This is because the function employs a binary search algorithm, which divides the search interval in half with each iteration.
+
+Reasoning: 
+    The and `maxIndex` function begins by setting intial values for `minIndex` to define the search interval
+    Inside the `while` loop, the function continuously divides the search interval in half until if finds the target element or exhausts the search space.
+    At each iteration, the algorithm compares the target element with the middle element of the current search interval (`currentElement`), reducing the search space by half each time
+
+Efficiency: 
+    The function is highly efficient, particulary for large sorted arrays, due to its logarthmic time complexity. It quickly narrows down the search space by half with each iteration, making it significantly faster than linear search algorithms for large datasets.
+
+Trade-offs:
+    The trade-offs with this approach is that the array must be sorted beforehand for the binary search algorithm to work correctly. Sorting the array initially may incur an addititonal time complexity of 0(n log n) using efficient binary search function are highly efficient. Additionally, binary search requires a sorted array, so if the array is frequently updated, the cost of maintaining the sorted order may outweigh the benefits of the efficient search algorithm.
+
+8. Random Element 
+    Time complexity of this function is 0(1), which means it has constant time complexity. Regardless of the size of the array `arr`, the function performs a fixed number of operations to generate a random index and access the corresponding elements in the array.
+
+Reasoning:
+    The function generates a random index using `Math.random()` multiplied by the length of the array `arr`. This operation has constant time complexity
+    Accessing the element at the random index inthe arary `arr` is also a constant-time operation
+    Since the function performs a fized number of operations regardless of the size of the array, its time complexity remains constant.
+
+Efficiency:
+    The function is efficient due to its constant time complexity. It provides a straight forward and quick way to retrieve a random element from an array without iterating through the entire array.
+
+Trade-offs:
+    The trade-offs here is that the function relies on the `Math.random()` function, which may not always produce perfectly uniform random numbers. However, for many practical applications, the randomness provided by `Math.random()` is sufficent. Additionally, the function assumes that the input array is not empty(`arr.length > 0`), as it does not handle that case explicity. Depending on the use case, additional error handling may be necessary to account for empty arrays
+
+10. Factorial 
+    Time complexity of this function is 0(n), where n is the input value passed to the function. This is because the function calls itself recursively n times, reducing the problem size by one with each recursive call until reaching the base case
+
+Reasoning: 
+    The function checks for the base case where n equals 0 or 1. If either condition is met, it returns 1
+    If the base case is not met, the function recursively calls itself with `n - 1`, effectively reducing the problem size by one
+    The recursion continues until reaching the base case, at which point the recursive calls unwind, multiplying each returned value by `n`
+
+    Since the function makes n recursive calls, its time complexity is linear, 0(n)
+
+Efficiency: 
+    The function is efficent for small inputs, as it has linear time complexity, However, for large values of n, the recursive approach may lead to stack overflow errors due to the recursive calls accumulating on the call stack
+
+Trade-offs:
+    The trade-offs with this recursive approach is the potential risk of stack overflow for large values of n. To mitigate this risk, an iterative approach or memoization technique could be employed to avoid excessive recursion. However, the recursive approach is elegant and easy to understand for smaller inputs and is suitable for many practical purposes.
